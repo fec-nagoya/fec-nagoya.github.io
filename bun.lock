@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "fec-nagoya-2026",
+      "name": "fec-nagoya-website",
       "devDependencies": {
         "@biomejs/biome": "2.3.14",
         "@tailwindcss/cli": "^4.1.18",

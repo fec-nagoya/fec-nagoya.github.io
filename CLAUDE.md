@@ -4,11 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-フロントエンドカンファレンス名古屋 2026 の公式Webサイト。LP1枚構成の静的サイトで、GitHub Pagesでホスティング。
+フロントエンドカンファレンス名古屋 2027 の公式Webサイト。LP1枚構成の静的サイトで、GitHub Pagesでホスティング。
 
-- 本番URL: https://fec-nagoya-org.github.io/2026/
-- イベント日: 2026年5月9日（土）
-- 会場: ウインクあいち
+- 本番URL: https://nagoya.fec.or.jp/
+- イベント日: 未定
+- 会場: 未定
 
 ## Tech Stack
 
