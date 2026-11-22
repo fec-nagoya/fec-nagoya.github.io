@@ -7,7 +7,7 @@
 	},
 	"files": {
 		"ignoreUnknown": true,
-		"includes": ["**", "!node_modules", "!style.css"]
+		"includes": ["**", "!node_modules", "!2027/style.css"]
 	},
 	"formatter": {
 		"enabled": true,

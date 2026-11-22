@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nagoya.fec.or.jp/sitemap.xml
+Sitemap: https://nagoya.fec.or.jp/2027/sitemap.xml

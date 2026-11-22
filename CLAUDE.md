@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 フロントエンドカンファレンス名古屋 2027 の公式Webサイト。LP1枚構成の静的サイトで、GitHub Pagesでホスティング。
 
-- 本番URL: https://nagoya.fec.or.jp/
+- 本番URL: https://nagoya.fec.or.jp/2027/（ルート `/` は `/2026/` へリダイレクト）
 - イベント日: 未定
 - 会場: 未定
 
@@ -29,14 +29,15 @@ bun run check        # Biome lint / format（自動修正）
 
 ## Architecture
 
-- `index.html` - サイト本体（LP1枚構成）
-- `src/input.css` - Tailwind CSS入力ファイル（`@import "tailwindcss"` + `@theme` によるカスタムテーマ定義）
-- `style.css` - Tailwind CLIが生成する出力CSS（git管理対象、直接編集不可）
-- `assets/` - 画像アセット（ロゴ、OGP画像、favicon等）
-  - `assets/staff-icon/` - スタッフアイコン画像。ファイル名は各スタッフのTwitter IDに対応。ただし `info.gyuh.ooo` のアイコンのみ外部URL直接参照
+- `index.html` - ルートのリダイレクト専用ページ（`/2026/` へ転送）
+- `2027/index.html` - サイト本体（LP1枚構成）
+- `2027/src/input.css` - Tailwind CSS入力ファイル（`@import "tailwindcss"` + `@theme` によるカスタムテーマ定義）
+- `2027/style.css` - Tailwind CLIが生成する出力CSS（git管理対象、直接編集不可）
+- `2027/assets/` - 画像アセット（ロゴ、OGP画像、favicon等）
+  - `2027/assets/staff-icon/` - スタッフアイコン画像。ファイル名は各スタッフのTwitter IDに対応。ただし `info.gyuh.ooo` のアイコンのみ外部URL直接参照
 - `server.js` - Bun製の開発用静的ファイルサーバー（port 3000、起動時にブラウザを自動オープン）
-- `src/location-map.js` - Google Maps APIを使った経路マップの描画スクリプト
-- `src/tracking.js` - GTMの`dataLayer`にクリックイベントをpushするスクリプト（JOBボード・スポンサー・SNS）。GA4への送信設定はGTM側で行う
+- `2027/src/location-map.js` - Google Maps APIを使った経路マップの描画スクリプト
+- `2027/src/tracking.js` - GTMの`dataLayer`にクリックイベントをpushするスクリプト（JOBボード・スポンサー・SNS）。GA4への送信設定はGTM側で行う
 - `biome.json` - Biome設定（インデント: タブ、クォート: ダブル、recommended rules、Tailwindディレクティブ対応）
 - `lefthook.yml` - pre-commit: Biome check、post-merge: bun.lock変更時に自動 `bun install`
 
@@ -67,12 +68,12 @@ bun run check        # Biome lint / format（自動修正）
 ### ファイル配置
 
 - `server.js`（開発用サーバー）はルートに置く
-- その他のJavaScriptファイルは `src/` 配下に置く
+- その他のJavaScriptファイルは `2027/src/` 配下に置く
 
 ### スタイリング方針
 
 - スタイルは可能な限りTailwind CSSのユーティリティクラスでHTML側に記述する
-- `src/input.css` に素のCSSを書くのは以下の場合のみ:
+- `2027/src/input.css` に素のCSSを書くのは以下の場合のみ:
   - `@theme`: テーマ変数の定義
   - `@keyframes` + `@utility`: Tailwindカスタムユーティリティの定義
   - CSS mask、複数gradient重ねなど、Tailwindのユーティリティでは表現できない複雑なスタイル
@@ -81,8 +82,8 @@ bun run check        # Biome lint / format（自動修正）
 
 ## Analytics
 
-- Google Tag Manager（コンテナID: `GTM-KHH5F9LR`）を `index.html` の `<head>` と `<body>` 直後に設置済み。GA4への送信設定はGTM側で行う
-- トラッキングスクリプトは `src/tracking.js` にまとめて管理し、イベントは `dataLayer` に push する
+- Google Tag Manager（コンテナID: `GTM-KHH5F9LR`）を `2027/index.html` の `<head>` と `<body>` 直後に設置済み。GA4への送信設定はGTM側で行う
+- トラッキングスクリプトは `2027/src/tracking.js` にまとめて管理し、イベントは `dataLayer` に push する
 - 各セクションのリンククリックを以下のイベントで計測:
   - JOBボード: `job_board_click`（パラメータ: `company`）→ `<a data-job-board-company="<company名>">`
     - `company` の値: `kaonavi` / `leaner` / `prtimes` / `cocorodzashi` / `chot` / `codecast` / `reiwatravel`
@@ -94,4 +95,4 @@ bun run check        # Biome lint / format（自動修正）
 ## Deploy
 
 - GitHub Pages（静的配信）
-- `style.css` はビルド成果物だがgit管理対象。`bun run build` でデプロイ前に再生成すること
+- `2027/style.css` はビルド成果物だがgit管理対象。`bun run build` でデプロイ前に再生成すること

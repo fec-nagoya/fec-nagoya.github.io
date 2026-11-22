@@ -2,7 +2,7 @@ pre-commit:
   parallel: true
   jobs:
     - name: tailwind build
-      run: bun run build && git add style.css
+      run: bun run build && git add 2027/style.css
       glob: "*.{html,css}"
     - name: biome check
       run: bunx --bun biome check --fix {staged_files}

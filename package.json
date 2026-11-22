@@ -3,8 +3,8 @@
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
-		"dev": "tailwindcss -i ./src/input.css -o ./style.css --watch & bun run server.js",
-		"build": "tailwindcss -i ./src/input.css -o ./style.css --minify",
+		"dev": "tailwindcss -i ./2027/src/input.css -o ./2027/style.css --watch & bun run server.js",
+		"build": "tailwindcss -i ./2027/src/input.css -o ./2027/style.css --minify",
 		"check": "biome check --fix .",
 		"prepare": "lefthook install"
 	},
